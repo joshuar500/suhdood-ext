@@ -1,0 +1,35 @@
+{
+
+  "manifest_version": 2,
+  "name": "NextShare",
+  "version": "1.0",
+
+  "description": "Adds a solid red border to all webpages matching mozilla.org.",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "<all_urls>",
+    "webNavigation",
+    "storage"
+  ],
+
+  "content_security_policy": "script-src 'self' https://*.example.org; object-src 'self'",
+
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "NextShare",
+    "default_popup": "popup/app.html"
+  },
+
+  "web_accessible_resources": [
+    "friends/Josh.jpg",
+    "friends/David.jpg",
+    "friends/Cayla.jpg"
+  ]
+
+}
