@@ -26,6 +26,43 @@
         browser.browserAction.setBadgeText({ text: "10" })
     }
 
+    function makeRequest (opts) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(opts.method, opts.url);
+            xhr.onload = function () {
+                if (this.status >= 200 && this.status < 300) {
+                    resolve(xhr.response);
+                } else {
+                    reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                    });
+                }
+            };
+            xhr.onerror = function () {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            };
+            if (opts.headers) {
+                Object.keys(opts.headers).forEach(function (key) {
+                    xhr.setRequestHeader(key, opts.headers[key]);
+                });
+            }
+            var params = JSON.stringify(opts.params);
+            // We'll need to stringify if we've been given an object
+            // If we have a string, this is skipped.
+            // if (params && typeof params === 'object') {
+            //     params = Object.keys(params).map(function (key) {
+            //         return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+            //     }).join('&');
+            //     }
+            xhr.send(params);
+        });
+    }
+
     function updateIcon() {
         let urlLength = sharedWithMe.length
         
@@ -85,6 +122,27 @@
         }
     }
 
+    function processLogin(form) {
+        makeRequest({
+            method: 'POST',
+            url: 'http://localhost:5050/login/',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            params: {
+                email:"memonkey@gmail.com", 
+                password: "Bff&arjaa1"
+            }
+        })
+        .then(function (data) {
+            console.log(data)
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
+    }
+
     // listen to tab URL changes
     browser.tabs.onUpdated.addListener(initialize)
 
@@ -104,18 +162,31 @@
             getOptionFunction(chosenOption)
         } else if (e.target.id === ('Login')) {
             document.getElementById('mySidenav').style.width = '100%'
-        } else if (e.target.id === ('Signup')) {
+        } else if (e.target.id === ('SubmitLogin')) {
+            var form = document.getElementById('LoginForm')
+            console.log('hey buddyyy')
+            processLogin(form)
+        }  else if (e.target.id === ('Signup')) {
             var xmlhttp = new XMLHttpRequest()
-            var url = 'https://www.google.com'
+            var url = 'http://localhost:5050/shares'
             xmlhttp.onreadystatechange = function () {
-                if (readyState === 4 && status === 200) {
-                    console.log(status)
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    console.log(xmlhttp.responseText)
                 }
             }
             xmlhttp.open('GET', url, true)
+            xmlhttp.setRequestHeader('Accept', 'application/json')
             xmlhttp.send()
         } else if (e.target.id === ('Close')) {
             document.getElementById('mySidenav').style.width = '0'
+        }
+    })
+
+    document.addEventListener('submit', (e) => {
+        if (e.target.id === ('SubmitLogin')) {
+            form = document.getElementById('LoginForm')
+            console.log('hey buddyyy')
+            processLogin(form)
         }
     })
 
