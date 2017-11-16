@@ -123,6 +123,8 @@
     }
 
     function processLogin(form) {
+        var email = document.getElementById('email').value
+        var password = document.getElementById('password').value
         makeRequest({
             method: 'POST',
             url: 'http://localhost:5050/login/',
@@ -131,8 +133,8 @@
                 'Content-Type': 'application/json'
             },
             params: {
-                email:"memonkey@gmail.com", 
-                password: "Bff&arjaa1"
+                email: email, 
+                password: password
             }
         })
         .then(function (data) {
@@ -182,12 +184,12 @@
         }
     })
 
-    document.addEventListener('submit', (e) => {
-        if (e.target.id === ('SubmitLogin')) {
-            form = document.getElementById('LoginForm')
-            console.log('hey buddyyy')
-            processLogin(form)
-        }
-    })
+    // document.addEventListener('submit', (e) => {
+    //     if (e.target.id === ('SubmitLogin')) {
+    //         form = document.getElementById('LoginForm')
+    //         console.log('hey buddyyy')
+    //         processLogin(form)
+    //     }
+    // })
 
 }) ()
