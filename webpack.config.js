@@ -54,27 +54,29 @@ module.exports = {
             // chunks: ['vendor', 'shared',  'app'],
             filename: './popup/app.html' 
         }),
-        new WebpackWebExt({
-          runOnce: false,
-          // this is for development on windows machines
-          argv: ["/c", "web-ext", "lint", "-s", "lib/"],
-          webExtPath: "cmd.exe",
-        //   // this is for development on unix machines
-        //   argv: ["run", "-s", "lib/"],
-        //   webExtPath: "web-ext",
-        }),
-        new WebpackWebExt({
-          runOnce: true,
-          maxRetries: 3,
-          // this is for development on windows machines
-          argv: ["/c", "web-ext", "run", "-s", "lib/"],
-          webExtPath: "cmd.exe",
-        //   // this is for development on unix machines
-        //   argv: ["run", "-s", "lib/"],
-        //   webExtPath: "web-ext",
-        }),
+        // new WebpackWebExt({
+        //   runOnce: false,
+        //   // this is for development on windows machines
+        //   argv: ["/c", "web-ext", "lint", "-s", "lib/"],
+        //   webExtPath: "cmd.exe",
+        // //   // this is for development on unix machines
+        // //   argv: ["run", "-s", "lib/"],
+        // //   webExtPath: "web-ext",
+        // }),
+        // new WebpackWebExt({
+        //   runOnce: true,
+        //   maxRetries: 3,
+        //   // this is for development on windows machines
+        //   argv: ["/c", "web-ext", "run", "-s", "lib/"],
+        //   webExtPath: "cmd.exe",
+        // //   // this is for development on unix machines
+        // //   argv: ["run", "-s", "lib/"],
+        // //   webExtPath: "web-ext",
+        // }),
         new CopyWebpackPlugin([
             {from:'./src/friends/',to:'./friends/'},
+            {from:'./src/manifest.json',to:'./manifest.json'},
+            {from:'./src/popup/style.css',to:'./popup/style.css'},
         ]), 
       ]
 };
