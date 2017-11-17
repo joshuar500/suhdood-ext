@@ -40,6 +40,10 @@ body {
   cursor: pointer;
 }
 
+#SubmitLogin {
+    background-color: #fff;
+    padding: 10px 30px 10px 30px;
+}
  /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
