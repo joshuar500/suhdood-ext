@@ -1,95 +1,104 @@
-
-
-body {
-  width: 250px;
+body{
+    margin: 0;
+    padding: 0;
+    background: url('https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6419c61e5a4e8c48b0afc4245206c8a4');
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    z-index: -10;
 }
 
-#Login {
-  margin: 3% auto;
-  padding: 4px;
-  text-align: center;
-  font-size: 1.5em;
-  background-color: #E5F2F2;
-  cursor: pointer;
-}
-
-#Signup {
-  margin: 3% auto;
-  padding: 4px;
-  text-align: center;
-  font-size: 1.5em;
-  background-color: #E5F2F2;
-  cursor: pointer;
-}
-
-#Next {
-  margin: 3% auto;
-  padding: 4px;
-  text-align: center;
-  font-size: 1.5em;
-  background-color: #E5F2F2;
-  cursor: pointer;
-}
-
-#Share {
-  margin: 3% auto;
-  padding: 4px;
-  text-align: center;
-  font-size: 1.5em;
-  background-color: #E5F2F2;
-  cursor: pointer;
-}
-
-#SubmitLogin {
-    background-color: #fff;
-    padding: 10px 30px 10px 30px;
-}
- /* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+#overlay{
     position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    z-index: -5;
+    height: 100%;
+    width: 100%;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    bottom: 0;
+    
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
+.loginbox{
+    width: 320px;
+    height: 360px;
+    color: #000;
+    top: 50%;
+    left: 50%;
+    padding: 60px 30px;
+    position: absolute;
+    transform: translate(-50%,  -50%);
+    box-sizing: border-box;
+    border-radius: 3%;
+    box-shadow: 8px 8px 50px #000;
+}
+h1{
+    color: #fff;
+    margin: 0;
+    padding: 0 0 0px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+.loginbox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 13px;
+}
+ 
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #bdc3c7;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    font-size: 16px;
+    opacity: 1;
+    color: #ccc;
+}
+
+
+.loginbox button {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #2ecc71;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+}
+
+.loginbox button:hover {
+    cursor: pointer;
+    background: #27ae60;
+    color: #fff;
+    
+}
+
+.loginbox a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.loginbox a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#text-account {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    opacity: 0.4;
 }

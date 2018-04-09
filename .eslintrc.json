@@ -1,0 +1,44 @@
+{
+    "extends": "airbnb-base",
+    "env": {
+            "browser": true,
+            "node": true,
+            "es6": true,
+            "jest": true,
+            "jquery": true
+        },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "arrowFunctions": false,
+            "binaryLiterals": true,
+            "blockBindings": true,
+            "classes": true,
+            "defaultParams": true,
+            "destructuring": true,
+            "forOf": true,
+            "generators": true,
+            "modules": true,
+            "objectLiteralComputedProperties": true,
+            "objectLiteralDuplicateProperties": true,
+            "objectLiteralShorthandMethods": true,
+            "objectLiteralShorthandProperties": true,
+            "octalLiterals": true,
+            "regexUFlag": true,
+            "regexYFlag": true,
+            "spread": true,
+            "superInFunctions": true,
+            "templateStrings": true,
+            "unicodeCodePointEscapes": true,
+            "globalReturn": true,
+            "jsx": true,
+            "experimentalObjectRestSpread": true,
+            "classMethodsUseThis": false
+        }
+    },
+    "rules": {
+        "linebreak-style": 0,
+        "object-shorthand": ["properties"]
+    }
+}

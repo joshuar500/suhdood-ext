@@ -7,7 +7,7 @@
   "description": "Share shit with friends",
 
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "imgs/icons/border-48.png"
   },
 
   "permissions": [
@@ -21,15 +21,19 @@
   "content_security_policy": "script-src 'self'; object-src 'self'",
 
   "browser_action": {
-    "default_icon": "icons/beasts-32.png",
+    "default_icon": "imgs/icons/beasts-32.png",
     "default_title": "NextShare",
     "default_popup": "popup/app.html"
   },
 
   "web_accessible_resources": [
-    "friends/Josh.jpg",
-    "friends/David.jpg",
-    "friends/Cayla.jpg"
-  ]
+    "imgs/friends/Josh.jpg",
+    "imgs/friends/David.jpg",
+    "imgs/friends/Cayla.jpg"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  }
 
 }
